@@ -10,6 +10,7 @@
   --hero-button-background: #188ce8;
   --icon-color: #afb1b8;
   --card-border: #eeeeee;
+  --background-make-color: rgba(47, 48, 58, 0.8);
   --flex-top: 30px;
   --flex-left: 30px;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -163,6 +164,23 @@ header .container {
   transition: color var(--response-time) var(--timing-function);
 }
 
+.current-link {
+  position: relative;
+  display: block;
+}
+
+.current-link::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--brand-text-color);
+  bottom: -1px;
+  transition: var(--response-time) var(--timing-function);
+}
+
 .site-nav-item:not(:last-child) {
   margin-right: 50px;
 }
@@ -264,17 +282,61 @@ header .container {
   background-color: var(--hero-button-background);
 }
 
-/* Секция преимущества */
+/*Модалка*/
 
-/* .position-list {
-  display: flex;
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+
+  transition: opacity var(--response-time) var(--timing-function);
 }
 
-.benefit-item-picture {
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 528px;
+  height: 581px;
+  padding: 15px;
+
+  background-color: var(--main-lite-color);
+
+  transform: translate(-50%, -50%) scale(1);
+
+  transition: transform var(--response-time) var(--timing-function);
+}
+
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   display: flex;
-  align-items: center;
   justify-content: center;
-} */
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--main-lite-color);
+  transition: border var(--response-time) var(--timing-function),
+    color var(--response-time) var(--timing-function);
+}
 
 .demonstration {
   height: 120px;
@@ -317,6 +379,29 @@ header .container {
 
 .make-item {
   width: calc(100% / 3 - 30px);
+}
+
+.make-item-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.make-item-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  font-style: normal;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--background-make-color);
+  color: var(--main-lite-color);
 }
 
 /* Секция наша команда */

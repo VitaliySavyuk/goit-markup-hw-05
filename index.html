@@ -52,8 +52,23 @@
         <h1 class="hero-title">
             Эффективные решения для вашего бизнеса
         </h1>
-        <button class="hero-btn" type="button">Заказать услугу</button>
+        <button  class="hero-btn" data-modal-open>Заказать услугу</button>
     </div>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button data-modal-close type="button" class="modal-btn">
+                <svg class="modal-icon" width="18" height="18">
+                    <use href="./images/sprite.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+   <!--  <button data-modal-close type="button" class="modal-btn">
+        <svg class="modal-icon">
+            <use href="./images/svg/symbol-defs.svg#close"></use>
+        </svg>
+    </button> -->
     </section>
     <!--Секция преимущества-->
     <section class="section benefit">
@@ -99,14 +114,29 @@
         <h2 class="section-title">Чем мы занимаемся</h2>
         <ul class="flex-list list">
             <li class="make-item flex-item">
+                <div class="make-item-wrapper">
                 <img class="make-item-img" src="./images/box1.jpg" alt="работает над кодом" width="370">
+                <p class="make-item-text">
+                Десктопные приложения
+                </p>
+            </div>
             </li>
             <li class="make-item flex-item">
+                <div class="make-item-wrapper">
                 <img class="make-item-img" src="./images/box2.jpg" alt="работает над дизайном" width="370">
+                <p class="make-item-text">
+                    Мобильные приложения  
+                </p>
+            </div>
             </li>
             <li class="make-item flex-item">
+                <div class="make-item-wrapper">
+                <p class="make-item-text">
+                Дизайнерские решения
+                </p>
                 <img class="make-item-img" src="./images/box3.jpg" alt="работает над графическим дизайном" width="370">
-            </li>
+            </div>
+        </li>
         </ul>
     </div>
     </section>
