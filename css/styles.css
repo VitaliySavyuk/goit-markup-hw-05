@@ -11,6 +11,8 @@
   --icon-color: #afb1b8;
   --card-border: #eeeeee;
   --background-make-color: rgba(47, 48, 58, 0.8);
+  --modal-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   --flex-top: 30px;
   --flex-left: 30px;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -293,17 +295,21 @@ header .container {
   background-color: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
+  z-index: 10;
 
-  transition: opacity var(--response-time) var(--timing-function);
+  transition: opacity var(--response-time) var(--timing-function),
+    visibility var(--response-time) var(--timing-function);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0;
 }
 
 .modal {
@@ -312,14 +318,16 @@ header .container {
   left: 50%;
 
   width: 528px;
-  height: 581px;
+  min-height: 581px;
   padding: 15px;
 
   background-color: var(--main-lite-color);
+  box-shadow: var(--modal-shadow);
 
   transform: translate(-50%, -50%) scale(1);
 
-  transition: transform var(--response-time) var(--timing-function);
+  transition: transform var(--response-time) var(--timing-function),
+    opacity var(--response-time) var(--timing-function);
 }
 
 .modal-btn {
@@ -379,12 +387,7 @@ header .container {
 
 .make-item {
   width: calc(100% / 3 - 30px);
-}
-
-.make-item-wrapper {
   position: relative;
-  display: flex;
-  justify-content: center;
 }
 
 .make-item-text {
